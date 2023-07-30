@@ -9,12 +9,13 @@ class TestApp(unittest.TestCase):
         self.app = app.test_client()
         self.server_thread = threading.Thread(target=app.run, kwargs={"host": "127.0.0.1", "port": 5000})
         self.server_thread.start()
-        time.sleep(1)  # Give the server some time to start
+        time.sleep(2)  # Give the server some time to start
 
     def tearDown(self):
         self.server_thread.join()
 
     def test_get_data(self):
+        print("opa")
         response = requests.get("http://127.0.0.1:5000/")
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.text, "hello from python")
