@@ -8,15 +8,12 @@ import (
 	"github.com/gorilla/mux"
 )
 
-func main(){
+func main() {
 
-    var router = mux.NewRouter()
-    const port string = ":8000"
-    router.HandleFunc("/", func(response http.ResponseWriter, request *http.Request){
-        fmt.Fprintln(response, "hello from Go")
-    })
+	var router = mux.NewRouter()
+	const port string = ":8000"
+	router.HandleFunc("/", getRoot).Methods("GET")
 
-    fmt.Println("server listening on port", port)
-    log.Fatalln(http.ListenAndServe(port, router))
+	fmt.Println("server listening on port", port)
+	log.Fatalln(http.ListenAndServe(port, router))
 }
-
