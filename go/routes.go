@@ -4,16 +4,16 @@ import (
 	"encoding/json"
 	"net/http"
 
-	repository "randapi.com/repo"
+	"randapi.com/service"
 )
 
 var (
-	repo repository.Repository = repository.NewMysqlRepository()
+	serviceInstance service.Service = service.NewService()
 )
 
 func getRoot(resp http.ResponseWriter, _ *http.Request) {
 	resp.Header().Set("Content-Type", "application/json")
-	result, err := repo.GetRow()
+	result, err := serviceInstance.GetRow()
 	if err != nil {
 		resp.WriteHeader(http.StatusInternalServerError)
 		resp.Write([]byte(`"error": "Error getting language row"`))
