@@ -1,4 +1,4 @@
-package main
+package controller
 
 import (
 	"encoding/json"
@@ -7,11 +7,17 @@ import (
 	"randapi.com/service"
 )
 
+type controller struct{}
+
+func NewController() Controller {
+	return &controller{}
+}
+
 var (
 	serviceInstance service.Service = service.NewService()
 )
 
-func getRoot(resp http.ResponseWriter, _ *http.Request) {
+func (*controller) GetRoot(resp http.ResponseWriter, _ *http.Request) {
 	resp.Header().Set("Content-Type", "application/json")
 	result, err := serviceInstance.GetRow()
 	if err != nil {
