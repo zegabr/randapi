@@ -9,13 +9,14 @@ import (
 
 type controller struct{}
 
-func NewController() Controller {
+var (
+	serviceInstance service.Service
+)
+
+func NewController(service service.Service) Controller {
+	serviceInstance = service
 	return &controller{}
 }
-
-var (
-	serviceInstance service.Service = service.NewService()
-)
 
 func (*controller) GetRoot(resp http.ResponseWriter, _ *http.Request) {
 	resp.Header().Set("Content-Type", "application/json")

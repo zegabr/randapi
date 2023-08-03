@@ -7,15 +7,16 @@ import (
 
 type service struct {}
 
-func NewService() Service{
+var (
+    repositoryInstance repository.Repository
+)
+
+func NewService(repos repository.Repository) Service{
+    repositoryInstance = repos
     return &service{}
 }
 
-var (
-	repo repository.Repository = repository.NewMysqlRepository()
-)
-
 func (*service) GetRow() (*entity.Row, error) {
-	return repo.GetRow()
+	return repositoryInstance.GetRow()
 }
 
