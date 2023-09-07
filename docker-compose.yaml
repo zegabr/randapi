@@ -4,8 +4,13 @@ services:
   python-app:
     build:
       context: ./python/
-      # dockerfile: Dockerfile
     restart: unless-stopped
     ports:
       - 5000:5000
 
+  go-app:
+    build:
+      context: ./go/
+    restart: unless-stopped
+    ports:
+      - 8000:8000

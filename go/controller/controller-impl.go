@@ -27,5 +27,5 @@ func (*controller) GetRoot(resp http.ResponseWriter, _ *http.Request) {
 		return
 	}
 	resp.WriteHeader(http.StatusOK)
-	json.NewEncoder(resp).Encode(result)
+	json.NewEncoder(resp).Encode(result.Phrase)
 }
