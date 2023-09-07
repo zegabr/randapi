@@ -1,6 +1,8 @@
 package main
 
 import (
+	"os"
+
 	"randapi.com/controller"
 	router "randapi.com/http"
 	repository "randapi.com/repo"
@@ -15,8 +17,6 @@ var (
 )
 
 func main() {
-	const port string = ":8000"
-
 	httpRouter.GET("/", controllerInstance.GetRoot)
-	httpRouter.SERVE(port)
+	httpRouter.SERVE(os.Getenv("PORT"))
 }
