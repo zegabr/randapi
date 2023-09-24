@@ -20,7 +20,7 @@ func (mock *MockRepo) GetRow() (*entity.Row, error) {
 
 func TestGetRow(t *testing.T){
     mockRepo := new(MockRepo)
-    row := entity.Row{Language: "Go", Phrase: "hello from Go"}
+    row := entity.Row{Language: "go", Phrase: "hello from go"}
     mockRepo.On("GetRow").Return(&row, nil)
 
     testService := NewService(mockRepo)
@@ -28,6 +28,6 @@ func TestGetRow(t *testing.T){
 
     mockRepo.AssertExpectations(t)
 
-    assert.Equal(t, result.Language, "Go")
-    assert.Equal(t, result.Phrase, "hello from Go")
+    assert.Equal(t, result.Language, "go")
+    assert.Equal(t, result.Phrase, "hello from go")
 }

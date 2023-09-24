@@ -10,7 +10,7 @@ func NewMysqlRepository() Repository {
 
 func (*repo) GetRow() (*entity.Row, error) {
 	return &entity.Row{
-		Language: "Go",
-		Phrase:   "hello from Go", // TODO: connect to mysql and get prepopulated row for golang
+		Language: "go",
+		Phrase:   "hello from go", // TODO: connect to mysql and get prepopulated row for golang
 	}, nil
 }
