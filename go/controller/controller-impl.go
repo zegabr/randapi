@@ -1,7 +1,6 @@
 package controller
 
 import (
-	"encoding/json"
 	"net/http"
 
 	"randapi.com/service"
@@ -27,5 +26,5 @@ func (*controller) GetRoot(resp http.ResponseWriter, _ *http.Request) {
 		return
 	}
 	resp.WriteHeader(http.StatusOK)
-	json.NewEncoder(resp).Encode(result.Phrase)
+	resp.Write([]byte(result.Phrase))
 }
