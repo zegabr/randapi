@@ -1,8 +1,8 @@
 # randapi
-random api that gives a different programming language each time
+random API that uses a different programming language each time you send a GET request
 
 ## Concepts used in this project:
-- REST APIs on many languages
+- REST APIs in some languages
 - Database
 - Microservices architecture
 - Ci/CD with GitHub actions
@@ -14,5 +14,4 @@ random api that gives a different programming language each time
 `bash test.sh` # will run curl multiple times to check nginx randomness
 
 
-## how to deploy to aws
-TODO (maybe use Terraform?)
+## How to deploy to AWS (TODO)
