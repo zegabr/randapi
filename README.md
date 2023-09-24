@@ -10,7 +10,8 @@ random api that gives a different programming language each time
 - Load balancer
 
 ## how to run locally
-`docker-compose up -d --build`
+`docker-compose up -d --build` # get it up and running
+`bash test.sh` # will run curl multiple times to check nginx randomness
 
 
 ## how to deploy to aws
